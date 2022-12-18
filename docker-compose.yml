@@ -1,0 +1,19 @@
+version: "3.9"
+
+networks:
+  us-network:
+    driver: bridge
+    name: us-network
+
+services:
+  state-service:
+    build: .
+    hostname: states-service
+    ports:
+      - "9000:8080"
+      - "9001:9229"
+    networks:
+      - us-network
+    volumes:
+      - ./:/app
+    command: "yarn start"
