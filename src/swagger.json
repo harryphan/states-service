@@ -1,0 +1,26 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "States API overview",
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/states": {
+      "get": {
+        "summary": "list states",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response"
+          }
+        }
+      }
+    }
+  },
+
+  "produces": [
+    "application/json"
+  ]
+}

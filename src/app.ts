@@ -5,7 +5,8 @@ import cors from 'cors';
 import * as dotenv from 'dotenv';
 import * as middlewares from './middlewares';
 import api from './api';
-import MessageResponse from './interfaces/MessageResponse';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from './swagger.json';
 
 dotenv.config();
 
@@ -15,12 +16,8 @@ app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
-
-app.get<{}, MessageResponse>('/', (req, res) => {
-  res.json({
-    message: 'Testing',
-  });
-});
+app.use('/api-docs', swaggerUi.serve);
+app.get('/api-docs', swaggerUi.setup(swaggerDocument));
 
 app.use('/v1', api);
 
