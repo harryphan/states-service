@@ -1,11 +1,9 @@
 import express from 'express';
-
-import MessageResponse from '../interfaces/MessageResponse';
 import states from './states';
 
 const router = express.Router();
 
-router.get<{}, MessageResponse>('/', (req, res) => {
+router.get('/', (req, res) => {
   res.json({
     message: 'Testing',
   });

@@ -16,4 +16,4 @@ services:
       - us-network
     volumes:
       - ./:/app
-    command: "yarn start"
+    command: "yarn dev"
